@@ -1,1 +1,5 @@
 <h1><%= @board.name %></h1>
+
+<%= render "topics/form", board: @board %>
+
+<%= render @board.topics %>

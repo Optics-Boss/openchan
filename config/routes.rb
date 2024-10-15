@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   root "boards#index"
-  resources :boards
 
-  # resources :articles do
-  #   resources :comments
-  # end
+  resources :boards do
+    resources :topics
+  end
+
+  resources :articles do
+    resources :comments
+  end
 end

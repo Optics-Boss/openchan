@@ -17,6 +17,16 @@
   padding: 15px;
 }
 
-.boards_title{
+.boards_title {
   margin-top: 0;
+}
+
+.topic_form {
+  display: flex;
+  justify-content: center;
+}
+
+.topic_form > form {
+  padding: 25px;
+  border: 1px black solid;
 }
