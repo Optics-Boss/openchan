@@ -1,5 +1,7 @@
-<h1><%= @board.name %></h1>
+<h1 class="board_show_title"><%= @board.name %></h1>
 
 <%= render "topics/form", board: @board %>
 
-<%= render @board.topics %>
+<div class="board_catalog">
+  <%= render @board.topics %>
+</div>

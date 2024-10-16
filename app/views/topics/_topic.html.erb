@@ -1,15 +1,8 @@
-<div>
-  <p>
-    <strong>Name:</strong>
-    <%= topic.name %>
-  </p>
-  <p>
-    <strong>Subject:</strong>
-    <%= topic.subject %>
-  </p>
-  <p>
-    <strong>Comment:</strong>
-    <%= topic.comment %>
-  </p>
-</div>
-
+<a href="/topic/<%= topic.id %>">
+  <div class="catalog_topic">
+      <strong><%= topic.subject %></strong>
+      <p>
+        <%= topic.comment %>
+      </p>
+  </div>
+</a>

@@ -21,12 +21,34 @@
   margin-top: 0;
 }
 
+.board_show_title {
+  text-align: center;
+}
+
+.board_catalog {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  padding: 50px;
+  justify-items: center;
+}
+
+.catalog_topic {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+}
+
+
 .topic_form {
   display: flex;
   justify-content: center;
 }
 
-.topic_form > form {
+.topic_title {
+  text-align: center;
+}
+
+.topic_container {
   padding: 25px;
   border: 1px black solid;
 }
