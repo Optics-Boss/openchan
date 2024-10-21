@@ -1,0 +1,6 @@
+<%= link_to 'Back', :back %>
+
+<h1><%= @topic.subject %> - <%= @topic.name %> </h1>
+<p><%= @topic.comment %></p>
+
+<%= render "replies/form", topic: @topic %>

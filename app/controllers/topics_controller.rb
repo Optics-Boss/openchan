@@ -5,6 +5,10 @@ class TopicsController < ApplicationController
     redirect_to board_path(@board)
   end
 
+  def show
+    @topic = Topic.find(params[:id])
+  end
+
   private
     def topic_params
       params.require(:topic).permit(:name, :subject, :comment)
