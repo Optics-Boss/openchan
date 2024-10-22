@@ -4,3 +4,8 @@
 <p><%= @topic.comment %></p>
 
 <%= render "replies/form", topic: @topic %>
+
+<div class="reply_catalog">
+  <%= render @topic.reply %>
+</div>
+

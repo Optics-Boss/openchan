@@ -52,3 +52,17 @@
   padding: 25px;
   border: 1px black solid;
 }
+
+.replies_form {
+  display: flex;
+  justify-content: center;
+}
+
+.replies_title {
+  text-align: center;
+}
+
+.replies_container {
+  padding: 25px;
+  border: 1px black solid;
+}

@@ -11,6 +11,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :topics do
+    resources :replies
+  end
+
   resources :articles do
     resources :comments
   end

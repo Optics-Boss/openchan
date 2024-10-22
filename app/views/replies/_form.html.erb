@@ -1,13 +1,10 @@
-<div class="topic_form">
-  <div class="topic_container">
-    <h2 class="topic_title">Topic</h2>
-    <%= form_with model: [ topic, topic.replies.build ] do |form| %>
+<div class="replies_form">
+  <div class="replies_container">
+    <h2 class="replies_title">Reply</h2>
+    <%= form_with model: [ topic, topic.reply.build ] do |form| %>
       <p>
         <%= form.label :name %><br>
         <%= form.text_field :name %>
-        <% board.errors.full_messages_for(:name).each do |message| %>
-          <div><%= message %></div>
-        <% end %>
       </p>
       <p>
         <%= form.label :comment %>
