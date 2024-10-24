@@ -1,6 +1,8 @@
+<%= render "boardslist", boards: @boards %>
+
 <h1 class="board_show_title"><%= @board.name %></h1>
 
-<a href="/">Back</a>
+[<a href="/">Back</a>]
 
 <%= render "topics/form", board: @board %>
 

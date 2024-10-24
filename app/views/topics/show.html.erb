@@ -1,11 +1,15 @@
-<%= link_to 'Back', :back %>
+<%= render "boards/boardslist", boards: @boards %>
 
-<h1><%= @topic.subject %> - <%= @topic.name %> </h1>
-<p><%= @topic.comment %></p>
+[<%= link_to 'Back', :back %>]
 
-<%= render "replies/form", topic: @topic %>
+<div class="replies_op">
+  <h1><%= @topic.subject %> - <%= @topic.name %> </h1>
+  <p><%= @topic.comment %></p>
+</div>
 
 <div class="reply_catalog">
   <%= render @topic.reply %>
 </div>
+
+<%= render "replies/form", topic: @topic %>
 

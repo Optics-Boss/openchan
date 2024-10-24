@@ -1,0 +1,13 @@
+<div class="list_of_boards">
+  [
+    <% boards.each do |board| %>
+      <a href="/boards/<%= board.id %>">
+        <%= board.short_name %> 
+      </a>
+      <% if board != boards.last %>
+        /
+      <% end %>
+    <% end %>
+    ]
+    [<a href="/">Home</a>]
+</div>

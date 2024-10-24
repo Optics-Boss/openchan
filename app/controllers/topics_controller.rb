@@ -6,6 +6,7 @@ class TopicsController < ApplicationController
   end
 
   def show
+    @boards = Board.all()
     @topic = Topic.find(params[:id])
   end
 

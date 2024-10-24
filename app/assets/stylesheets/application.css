@@ -66,3 +66,10 @@
   padding: 25px;
   border: 1px black solid;
 }
+
+.replies_comment {
+    padding: 25px;
+    margin: 8px;
+    border: 1px black solid;
+    width: fit-content;
+}
