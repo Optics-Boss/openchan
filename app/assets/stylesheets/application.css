@@ -2,10 +2,12 @@
   --main-blue-color: #245BDB;
   --alternative-blue-color: #24B7DB;
   --main-purple-color: #6b6798;
+  --alternative-purple-color: #8985AD;
+  --tertairy-purple-color: #5166AE;
 }
 
 .openchan_body {
-  background-color: var(--main-purple-color);
+  background-color: var(--alternative-purple-color);
 }
 
 .openchan_title {
@@ -14,11 +16,18 @@
 
 .boards_container {
   border: black 1px solid;
-  padding: 15px;
+  background-color: var(--main-purple-color);
 }
 
 .boards_title {
   margin-top: 0;
+  padding: 5px 15px;
+  border-bottom: 1px solid black;
+  background-color: var(--tertairy-purple-color);
+}
+
+.boards_list {
+  padding: 0 15px;
 }
 
 .board_show_title {
@@ -36,6 +45,8 @@
   border: 1px solid black;
   padding: 10px;
   margin: 10px;
+  min-width: 100px;
+  background-color: var(--main-purple-color);
 }
 
 
@@ -50,6 +61,7 @@
 
 .topic_container {
   padding: 25px;
+  background-color: var(--main-purple-color);
   border: 1px black solid;
 }
 

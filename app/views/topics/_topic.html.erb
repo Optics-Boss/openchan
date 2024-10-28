@@ -1,8 +1,13 @@
-<a href="/boards/1/topics/<%= topic.id %>">
-  <div class="catalog_topic">
-      <strong><%= topic.subject %></strong>
-      <p>
-        <%= topic.comment %>
-      </p>
-  </div>
-</a>
+<% topics.each do |topic| %>
+  <% if topic.id != nil %>
+    <a href="/boards/<%= board.id %>/topics/<%= topic.id %>">
+      <div class="catalog_topic">
+          <strong><%= topic.subject %></strong>
+          <p>
+            <%= topic.comment %>
+          </p>
+          <%= topic.inspect %>
+      </div>
+    </a>
+  <% end %>
+<% end %>

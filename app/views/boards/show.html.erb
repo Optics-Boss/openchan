@@ -1,11 +1,11 @@
 <%= render "boardslist", boards: @boards %>
 
-<h1 class="board_show_title"><%= @board.name %></h1>
+<h1 class="board_show_title">/<%= @board.short_name %>/ - <%= @board.name %></h1>
 
-[<a href="/">Back</a>]
+[<a href="">Refresh</a>]
 
 <%= render "topics/form", board: @board %>
 
 <div class="board_catalog">
-  <%= render @board.topics %>
+  <%= render "topics/topic", board: @board, topics: @board.topics %>
 </div>
