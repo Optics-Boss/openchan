@@ -1,8 +1,18 @@
 class TopicsController < ApplicationController
   def create
+    @boards = Board.all()
     @board = Board.find(params[:board_id])
-    @board.topics.create(topic_params)
-    redirect_to board_path(@board)
+    @topic = Topic.new(topic_params)
+
+    if @topic.save
+      redirect_to board_path(@board)
+    else
+      render "boards/show", status: :unprocessable_entity, locals: {
+        boards: @boards,
+        board: @board,
+        topic: @topic
+      }
+    end
   end
 
   def show

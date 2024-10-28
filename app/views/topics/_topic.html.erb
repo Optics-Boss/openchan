@@ -3,10 +3,10 @@
     <a href="/boards/<%= board.id %>/topics/<%= topic.id %>">
       <div class="catalog_topic">
           <strong><%= topic.subject %></strong>
+          <p>Replies: <%= topic.reply_ids.count %></p>
           <p>
             <%= topic.comment %>
           </p>
-          <%= topic.inspect %>
       </div>
     </a>
   <% end %>
