@@ -4,7 +4,10 @@
     <%= form_with model: [ board, board.topics.build ] do |form| %>
       <p>
         <%= form.label :name %><br>
-        <%= form.text_field :name %>
+        <%= 
+          form.text_field :name,
+          :value => if defined? topic.name then topic.name else "" end 
+        %>
         <% if defined? topic.errors %>
           <% topic.errors.full_messages_for(:name).each do |message| %>
             <div><%= message %></div>
@@ -13,7 +16,10 @@
       </p>
       <p>
         <%= form.label :subject %><br>
-        <%= form.text_field :subject %>
+        <%= 
+          form.text_field :subject,
+          :value => if defined? topic.subject then topic.subject else "" end 
+        %>
         <% if defined? topic.errors %>
           <% topic.errors.full_messages_for(:subject).each do |message| %>
             <div><%= message %></div>
@@ -22,7 +28,11 @@
       </p>
       <p>
         <%= form.label :comment %>
-        <%= form.text_area :comment, size:"70x5" %>
+        <%= 
+          form.text_area :comment,
+          size:"70x5",
+          :value => if defined? topic.comment then topic.comment else "" end 
+        %>
         <% if defined? topic.errors %>
           <% topic.errors.full_messages_for(:comment).each do |message| %>
             <div><%= message %></div>
