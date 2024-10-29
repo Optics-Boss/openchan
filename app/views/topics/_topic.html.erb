@@ -1,6 +1,6 @@
 <% topics.each do |topic| %>
   <% if topic.id != nil %>
-    <a href="/boards/<%= board.id %>/topics/<%= topic.id %>">
+    <a class="catalog_link" href="/boards/<%= board.id %>/topics/<%= topic.id %>">
       <div class="catalog_topic">
           <strong><%= topic.subject %></strong>
           <p>Replies: <%= topic.reply_ids.count %></p>

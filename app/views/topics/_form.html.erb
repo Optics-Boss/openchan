@@ -3,44 +3,47 @@
     <h2 class="topic_title">Topic</h2>
     <%= form_with model: [ board, board.topics.build ] do |form| %>
       <p>
-        <%= form.label :name %><br>
+        <%= form.label :name %> <span class="form_required">*</span><br>
         <%= 
           form.text_field :name,
+          class: "form_textfield",
           :value => if defined? topic.name then topic.name else "" end 
         %>
         <% if defined? topic.errors %>
           <% topic.errors.full_messages_for(:name).each do |message| %>
-            <div><%= message %></div>
+            <div class="form_error"><%= message %></div>
           <% end %>
         <% end %>
       </p>
       <p>
-        <%= form.label :subject %><br>
+        <%= form.label :subject %> <span class="form_required">*</span><br>
         <%= 
           form.text_field :subject,
+          class: "form_textfield",
           :value => if defined? topic.subject then topic.subject else "" end 
         %>
         <% if defined? topic.errors %>
           <% topic.errors.full_messages_for(:subject).each do |message| %>
-            <div><%= message %></div>
+            <div class="form_error"><%= message %></div>
           <% end %>
         <% end %>
       </p>
       <p>
-        <%= form.label :comment %>
+        <%= form.label :comment %> <span class="form_required">*</span> 
         <%= 
           form.text_area :comment,
+          class: "form_textarea",
           size:"70x5",
           :value => if defined? topic.comment then topic.comment else "" end 
         %>
         <% if defined? topic.errors %>
           <% topic.errors.full_messages_for(:comment).each do |message| %>
-            <div><%= message %></div>
+            <div class="form_error"><%= message %></div>
           <% end %>
         <% end %>
       </p>
       <p>
-        <%= form.submit %>
+        <%= form.submit class: "form_button" %>
       </p>
     <% end %>
   </div>
