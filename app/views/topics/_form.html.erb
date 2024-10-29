@@ -5,7 +5,7 @@
       <p>
         <%= form.label :name %><br>
         <%= form.text_field :name %>
-        <% if defined? topic %>
+        <% if defined? topic.errors %>
           <% topic.errors.full_messages_for(:name).each do |message| %>
             <div><%= message %></div>
           <% end %>
@@ -14,7 +14,7 @@
       <p>
         <%= form.label :subject %><br>
         <%= form.text_field :subject %>
-        <% if defined? topic %>
+        <% if defined? topic.errors %>
           <% topic.errors.full_messages_for(:subject).each do |message| %>
             <div><%= message %></div>
           <% end %>
@@ -23,7 +23,7 @@
       <p>
         <%= form.label :comment %>
         <%= form.text_area :comment, size:"70x5" %>
-        <% if defined? topic %>
+        <% if defined? topic.errors %>
           <% topic.errors.full_messages_for(:comment).each do |message| %>
             <div><%= message %></div>
           <% end %>
