@@ -7,9 +7,10 @@
 </div>
 
 <div class="replies_op">
-  <h1><%= @topic.subject %> - <%= @topic.name %> </h1>
+  <h2><%= @topic.subject %> - <%= @topic.name %> - <%= @topic.created_at %> </h2>
   <p><%= @topic.comment %></p>
 </div>
+
 
 <div class="reply_catalog">
   <%= render @topic.reply %>
