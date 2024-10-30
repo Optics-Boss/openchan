@@ -7,7 +7,7 @@
         <%= 
           form.text_field :name,
           class: "form_textfield",
-          :value => if defined? topic.name then topic.name else "" end 
+          :value => if defined? topic.name then topic.name else "Anon" end 
         %>
         <% if defined? topic.errors %>
           <% topic.errors.full_messages_for(:name).each do |message| %>

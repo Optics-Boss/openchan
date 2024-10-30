@@ -8,7 +8,6 @@ class TopicsController < ApplicationController
     @board = Board.find(params[:board_id])
     @topic = @board.topics.create(topic_params)
     @topic.assign_attributes(topic_params)
-    puts @topic.inspect
 
     if @topic.persisted?
       redirect_to board_path(@board)
@@ -23,6 +22,7 @@ class TopicsController < ApplicationController
 
   def show
     @boards = Board.all()
+    @board = Board.find(params[:board_id])
     @topic = Topic.find(params[:id])
   end
 

@@ -2,16 +2,35 @@
   <div class="replies_container">
     <h2 class="replies_title">Reply</h2>
     <%= form_with model: [ topic, topic.reply.build ] do |form| %>
+      <%= form.hidden_field :board_id, :value => params[:board_id] %>
       <p>
-        <%= form.label :name %><br>
-        <%= form.text_field :name %>
+        <%= form.label :name %> <span class="form_required">*</span><br>
+        <%= 
+          form.text_field :name,
+          class: "form_textfield",
+          :value => if defined? reply.name then reply.name else "Anon" end 
+        %>
+        <% if defined? reply.errors %>
+          <% reply.errors.full_messages_for(:name).each do |message| %>
+            <div class="form_error"><%= message %></div>
+          <% end %>
+        <% end %>
       </p>
       <p>
-        <%= form.label :comment %>
-        <%= form.text_area :comment, size:"70x5" %>
+        <%= form.label :comment %> <span class="form_required">*</span>
+        <%= form.text_area :comment,
+          class: "form_textarea",
+          size:"70x5",
+          :value => if defined? reply.comment then reply.comment else "" end
+        %>
+        <% if defined? reply.errors %>
+          <% reply.errors.full_messages_for(:comment).each do |message| %>
+            <div class="form_error"><%= message %></div>
+          <% end %>
+        <% end %>
       </p>
       <p>
-        <%= form.submit %>
+        <%= form.submit class: "form_button" %>
       </p>
     <% end %>
   </div>

@@ -1,6 +1,10 @@
 <%= render "shared/boardslist", boards: @boards %>
 
-[<%= link_to 'Back', :back %>]
+<h1 class="board_show_title">/<%= @board.short_name %>/ - <%= @board.name %></h1>
+
+<div class="board_options">
+  [<a href="/boards/<%= @board.id %>">Back</a>]
+</div>
 
 <div class="replies_op">
   <h1><%= @topic.subject %> - <%= @topic.name %> </h1>
@@ -11,5 +15,4 @@
   <%= render @topic.reply %>
 </div>
 
-<%= render "replies/form", topic: @topic %>
-
+<%= render "replies/form", topic: @topic, reply: @reply %>

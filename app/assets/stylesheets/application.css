@@ -17,6 +17,7 @@
 .boards_container {
   border: black 1px solid;
   background-color: var(--main-purple-color);
+  border-radius: 5px;
 }
 
 .boards_title {
@@ -39,6 +40,13 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   padding: 50px;
   justify-items: center;
+}
+
+.board_options {
+  margin-bottom: 10px;
+  padding: 5px 0;
+  border-top: 1px solid darkgray;
+  border-bottom: 1px solid darkgray;
 }
 
 .catalog_topic {
@@ -79,6 +87,15 @@
   padding: 25px;
   background-color: var(--main-purple-color);
   border: 1px black solid;
+  border-radius: 5px;
+}
+
+.replies_op {
+  padding: 25px;
+  background-color: var(--main-purple-color);
+  border: 1px black solid;
+  margin: 8px 0;
+  border-radius: 5px;
 }
 
 .replies_form {
@@ -92,14 +109,16 @@
 
 .replies_container {
   padding: 25px;
+  background-color: var(--main-purple-color);
   border: 1px black solid;
+  border-radius: 5px;
 }
 
 .replies_comment {
   padding: 25px;
-  margin: 8px;
+  background-color: var(--main-purple-color);
+  margin: 8px 0;
   border: 1px black solid;
-  width: fit-content;
 }
 
 .form_textfield {
@@ -143,4 +162,15 @@
 
 .form_error {
   color: red;
+}
+
+@media only screen and (max-width: 925px) {
+  .board_catalog {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .catalog_topic {
+      min-width: 25vw;
+      max-width: 25vw;
+  }
 }
