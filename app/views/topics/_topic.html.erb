@@ -2,7 +2,7 @@
   <% if topic.id != nil %>
     <a class="catalog_link" href="/boards/<%= board.id %>/topics/<%= topic.id %>">
       <div class="catalog_topic">
-          <strong><%= topic.subject %></strong>
+        <strong><%= topic.subject %> - <%= topic.created_at.strftime("%F %T") %></strong>
           <p>Replies: <%= topic.reply_ids.count %></p>
           <p>
             <%= topic.comment %>

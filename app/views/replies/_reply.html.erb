@@ -1,5 +1,5 @@
 <div class="replies_comment">
-  <h3><%= reply.name %> - <%= reply.created_at %></h3>
+  <h3><span class="anon_name"><%= reply.name %></span> - <%= reply.created_at.strftime("%F %T") %> - <%= reply.id %></h3>
     <p>
       <%= reply.comment %>
     </p>

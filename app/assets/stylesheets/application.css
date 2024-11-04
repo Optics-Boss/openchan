@@ -6,6 +6,16 @@
   --tertairy-purple-color: #5166AE;
 }
 
+
+h2 {
+  margin-top: 0;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+
 .openchan_body {
   background-color: var(--alternative-purple-color);
 }
@@ -103,7 +113,7 @@
 }
 
 .replies_op {
-  padding: 25px;
+  padding: 14px 25px;
   background-color: var(--main-purple-color);
   border: 1px black solid;
   margin: 8px 0;
@@ -127,10 +137,11 @@
 }
 
 .replies_comment {
-  padding: 25px;
+  padding: 14px 25px;
   background-color: var(--main-purple-color);
   margin: 8px 0;
   border: 1px black solid;
+  border-radius: 5px;
 }
 
 .form_textfield {
@@ -176,6 +187,9 @@
   color: red;
 }
 
+.anon_name {
+  color: var(--alternative-blue-color);
+}
 
 @media only screen and (max-width: 925px) {
   .board_catalog {
