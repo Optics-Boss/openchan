@@ -3,11 +3,27 @@
 <h1 class="board_show_title">/<%= @board.short_name %>/ - <%= @board.name %></h1>
 
 <div class="board_options">
-  [<a href="">Refresh</a>]
+  <div class="board_options_left">
+    [<a href="">Refresh</a>] 
+  </div>
+
+
+  <div class="board_options_right">
+    <%= form_with(url: board_path(@board), method: :get, local: true) do |form| %>
+      Sort By: <%= select_tag(:sort, options_for_select([
+        ['New', 'created_at'],
+        ['Name', 'name']
+      ], @sort)) %>
+      <%= form.submit "Sort" %>
+    <% end %>
+  </div>
 </div>
 
 <%= render "topics/form", board: @board, topic: @topic %>
 
 <div class="board_catalog">
-  <%= render "topics/topic", board: @board, topics: @board.topics %>
+  <%= render "topics/topic", 
+    board: @board,
+    topics: @board.topics.sort_by{|e| e[@sort] || @default} 
+  %>
 </div>

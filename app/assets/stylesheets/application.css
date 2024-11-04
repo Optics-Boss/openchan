@@ -47,6 +47,18 @@
   padding: 5px 0;
   border-top: 1px solid darkgray;
   border-bottom: 1px solid darkgray;
+  overflow: auto;
+}
+
+.board_options_left {
+  width: 50%;
+  float: left;
+}
+
+.board_options_right {
+  width: 50%;
+  float: right;
+  text-align: right;
 }
 
 .catalog_topic {
@@ -163,6 +175,7 @@
 .form_error {
   color: red;
 }
+
 
 @media only screen and (max-width: 925px) {
   .board_catalog {

@@ -22,6 +22,7 @@ class TopicsController < ApplicationController
 
   def show
     @boards = Board.all()
+    @sort = "name"
     @board = Board.find(params[:board_id])
     @topic = Topic.find(params[:id])
   end
