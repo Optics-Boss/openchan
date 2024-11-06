@@ -3,12 +3,20 @@
 <h1 class="board_show_title">/<%= @board.short_name %>/ - <%= @board.name %></h1>
 
 <div class="board_options">
-  [<a href="/boards/<%= @board.id %>">Back</a>]
+  <div class="board_options_left">
+    [<a href="/boards/<%= @board.id %>">Back</a>]
+    [<a href="#bottom">Bottom</a>] 
+    [<a href="">Update</a>] 
+  </div>
+
+  <div class="board_options_right">
+    <span title="Amount of replies"><%= @topic.reply.count %></span>
+  </div>
 </div>
 
 <div class="replies_op">
   <h2 class="replies_op_title"><%= @topic.subject %> - <span class="anon_name"><%= @topic.name %></span> - <%= @topic.created_at.strftime("%F %T") %> - <%= @topic.id %> </h2>
-  <p><%= @topic.comment %></p>
+  <p><%= simple_format(@topic.comment) %></p>
 </div>
 
 

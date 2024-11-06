@@ -27,7 +27,6 @@ class TopicsController < ApplicationController
   end
 
   def destroy
-    puts "Test"
     @topic = Topic.find(params[:id])
     @topic.destroy
 

@@ -1,6 +1,14 @@
 <div class="replies_comment">
   <h3><span class="anon_name"><%= reply.name %></span> - <%= reply.created_at.strftime("%F %T") %> - <%= reply.id %></h3>
     <p>
-      <%= reply.comment %>
+      <%= simple_format(reply.comment) %>
     </p>
+    <% if logged_in? %>
+       <%= 
+         button_to "Delete", 
+         {:controller => :replies, :action => 'destroy', :id => reply.id },
+         :method => :delete, 
+         data: { turbo_confirm: "Are you sure?" }
+       %>
+    <% end %>
 </div>

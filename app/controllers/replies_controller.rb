@@ -11,8 +11,6 @@ class RepliesController < ApplicationController
     if @reply.persisted?
       redirect_to topic_path(@topic)
     else
-      puts "else"
-
       render "topics/show", status: :unprocessable_entity, locals: {
         boards: @boards,
         board: @board,
@@ -20,6 +18,13 @@ class RepliesController < ApplicationController
         reply: @reply
       }
     end
+  end
+
+  def destroy
+    @reply = Reply.find(params[:id])
+    @reply.destroy
+
+    redirect_back fallback_location: root_path, status: :see_other
   end
 
   private
