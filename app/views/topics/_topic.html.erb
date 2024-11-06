@@ -1,13 +1,32 @@
 <% topics.each do |topic| %>
   <% if topic.id != nil %>
-    <a class="catalog_link" href="/boards/<%= board.id %>/topics/<%= topic.id %>">
-      <div class="catalog_topic">
-        <strong><%= topic.subject %> - <%= topic.created_at.strftime("%F %T") %></strong>
-          <p>Replies: <%= topic.reply_ids.count %></p>
-          <p>
-            <%= topic.comment %>
-          </p>
-      </div>
-    </a>
+    <% if logged_in? %>
+        <div class="catalog_topic">
+           <a class="catalog_link" href="/boards/<%= board.id %>/topics/<%= topic.id %>">
+             <strong><%= topic.subject %> - <%= topic.created_at.strftime("%F %T") %></strong>
+             <p>Replies: <%= topic.reply_ids.count %></p>
+             <p>
+               <%= topic.comment %>
+             </p>
+           </a>
+           <button>Pin</button>
+           <%= 
+             button_to "Delete", 
+             {:controller => :topics, :action => 'destroy', :id => topic.id },
+             :method => :delete, 
+             data: { turbo_confirm: "Are you sure?" }
+           %>
+        </div>
+     <% else %>
+      <a class="catalog_link" href="/boards/<%= board.id %>/topics/<%= topic.id %>">
+        <div class="catalog_topic">
+          <strong><%= topic.subject %> - <%= topic.created_at.strftime("%F %T") %></strong>
+            <p>Replies: <%= topic.reply_ids.count %></p>
+            <p>
+              <%= topic.comment %>
+            </p>
+        </div>
+      </a>
+    <% end %>
   <% end %>
 <% end %>

@@ -26,6 +26,14 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
   end
 
+  def destroy
+    puts "Test"
+    @topic = Topic.find(params[:id])
+    @topic.destroy
+
+    redirect_back fallback_location: root_path, status: :see_other
+  end
+
   private
     def topic_params
       params.require(:topic).permit(:name, :subject, :comment)
