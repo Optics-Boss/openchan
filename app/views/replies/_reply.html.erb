@@ -1,14 +1,20 @@
-<div class="replies_comment">
-  <h3><span class="anon_name"><%= reply.name %></span> - <%= reply.created_at.strftime("%F %T") %> - <%= reply.id %></h3>
-    <p>
-      <%= simple_format(reply.comment) %>
-    </p>
-    <% if logged_in? %>
-       <%= 
-         button_to "Delete", 
-         {:controller => :replies, :action => 'destroy', :id => reply.id },
-         :method => :delete, 
-         data: { turbo_confirm: "Are you sure?" }
-       %>
-    <% end %>
-</div>
+<% if reply.id != nil %>
+  <div class="replies_comment" id="<%= reply.id %>">
+      <h3>
+        <span class="anon_name"><%= reply.name %></span>
+        - <%= reply.created_at.strftime("%F %T") %> 
+        - <%= reply.id %></h3>
+        <p>
+        <%= simple_format(reply.comment.gsub(/(>>(\d+))/, '<a href="#\2">\1</a>')) %>
+        </p>
+        <% if logged_in? %>
+           <%= 
+             button_to "Delete", 
+             {:controller => :replies, :action => 'destroy', :id => reply.id },
+             :method => :delete, 
+             data: { turbo_confirm: "Are you sure?" }
+           %>
+      <% end %>
+  </div>
+<% end %>
+
