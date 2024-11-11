@@ -8,8 +8,12 @@ class RepliesController < ApplicationController
     @reply = @topic.reply.create(reply_params)
     @reply.assign_attributes(reply_params)
 
+    puts params[:reply][:board_id]
+    puts params[:topic_id]
+    puts @topic.inspect
+
     if @reply.persisted?
-      redirect_to topic_path(@topic)
+      redirect_to board_topic_path(@board, @topic)
     else
       render "topics/show", status: :unprocessable_entity, locals: {
         boards: @boards,

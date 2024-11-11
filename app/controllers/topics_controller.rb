@@ -21,6 +21,7 @@ class TopicsController < ApplicationController
   end
 
   def show
+    puts params.inspect
     @boards = Board.all()
     @board = Board.find(params[:board_id])
     @topic = Topic.find(params[:id])
