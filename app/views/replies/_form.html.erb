@@ -20,6 +20,7 @@
         <%= form.label :comment %> <span class="form_required">*</span>
         <%= form.text_area :comment,
           class: "form_textarea",
+          spellcheck: "false",
           size:"70x5",
           :value => if defined? reply.comment then reply.comment else "" end
         %>
