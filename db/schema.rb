@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_12_194034) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_12_205439) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -56,6 +56,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_12_194034) do
     t.integer "topic_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "reported"
     t.index ["topic_id"], name: "index_replies_on_topic_id"
   end
 

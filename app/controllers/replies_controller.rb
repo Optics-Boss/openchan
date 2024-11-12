@@ -24,6 +24,11 @@ class RepliesController < ApplicationController
     end
   end
 
+  def report
+    @reply = Reply.find(params[:id]).update_attribute!(:reported, true)
+    redirect_back fallback_location: root_path, status: :see_other
+  end
+
   def destroy
     @reply = Reply.find(params[:id])
     @reply.destroy

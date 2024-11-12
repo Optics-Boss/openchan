@@ -22,11 +22,18 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :replies
+  resources :replies do
+    collection do
+      post :report
+    end
+  end
+
   resources :users
 
   get "login", to: "sessions#login"
   post "login" => "sessions#create"
   post "logout" => "sessions#destroy"
   get "logout" => "sessions#destroy"
+
+  get "admin/reported" => "admin#showReported"
 end

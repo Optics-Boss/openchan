@@ -27,7 +27,7 @@ class TopicsController < ApplicationController
   end
 
   def pin
-    @topic = Topic.find(params[:id]).toggle!(:pin)
+    @topic = Topic.find(params[:id]).toggle!(:reported)
     redirect_back fallback_location: root_path, status: :see_other
   end
 
