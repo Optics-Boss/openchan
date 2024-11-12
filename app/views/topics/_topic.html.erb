@@ -4,12 +4,19 @@
         <div class="catalog_topic">
            <a class="catalog_link" href="/boards/<%= board.id %>/topics/<%= topic.id %>">
              <strong><%= topic.subject %> - <%= topic.created_at.strftime("%F %T") %></strong>
+              <% if topic.pin %>
+                <p>Pinned</p>
+              <% end %>
              <p>Replies: <%= topic.reply_ids.count %></p>
              <p>
                <%= topic.comment %>
              </p>
            </a>
-           <button>Pin</button>
+           <%= 
+             button_to "Pin", 
+             {:controller => :topics, :action => 'pin', :id => topic.id },
+             :method => :pin 
+           %>
            <%= 
              button_to "Delete", 
              {:controller => :topics, :action => 'destroy', :id => topic.id },
@@ -21,6 +28,9 @@
       <a class="catalog_link" href="/boards/<%= board.id %>/topics/<%= topic.id %>">
         <div class="catalog_topic">
           <strong><%= topic.subject %> - <%= topic.created_at.strftime("%F %T") %></strong>
+            <% if topic.pin %>
+              <p>Pinned</p>
+            <% end %>
             <p>Replies: <%= topic.reply_ids.count %></p>
             <p>
               <%= topic.comment %>

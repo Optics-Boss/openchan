@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   end
 
   resources :topics do
+    collection do
+      post :pin
+    end
     resources :replies
   end
 

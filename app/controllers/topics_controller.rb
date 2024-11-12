@@ -21,10 +21,14 @@ class TopicsController < ApplicationController
   end
 
   def show
-    puts params.inspect
     @boards = Board.all()
     @board = Board.find(params[:board_id])
     @topic = Topic.find(params[:id])
+  end
+
+  def pin
+    @topic = Topic.find(params[:id]).toggle!(:pin)
+    redirect_back fallback_location: root_path, status: :see_other
   end
 
   def destroy

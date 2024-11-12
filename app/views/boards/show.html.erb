@@ -24,6 +24,7 @@
 <div class="board_catalog">
   <%= render "topics/topic", 
     board: @board,
-    topics: @board.topics.sort_by{|e| e[@sort] || @default} 
+    topics: @board.topics.select{|e| e['pin'] == true} +
+      @board.topics.select{|e| e['pin'] == false}.sort_by{|e| e[@sort] || @default}
   %>
 </div>
