@@ -35,5 +35,6 @@ Rails.application.routes.draw do
   post "logout" => "sessions#destroy"
   get "logout" => "sessions#destroy"
 
+  get "admin" => "admin#index"
   get "admin/reported" => "admin#showReported"
 end

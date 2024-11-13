@@ -6,6 +6,10 @@
   --tertairy-purple-color: #5166AE;
 }
 
+.clearfix {
+  overflow: auto;
+}
+
 
 h2 {
   margin-top: 0;
@@ -190,6 +194,63 @@ h3 {
 .anon_name {
   color: var(--alternative-blue-color);
 }
+
+.admin_title {
+  text-align: center;
+  margin-top: 45px;
+}
+
+.admin_menu {
+  padding: 10px;
+}
+
+.admin_menu_left {
+  float: left;
+}
+
+.admin_menu_right {
+  float: right;
+}
+
+.admin_button {
+  background-color: var(--tertairy-purple-color); 
+  border: 2px solid black;
+  padding: 8px 8px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.admin_button:hover {
+  background-color: var(--alternative-purple-color); 
+}
+
+.admin_button_form {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.admin_link:link, .admin_link:visited {
+  background-color: var(--tertairy-purple-color); 
+  border: 2px solid black;
+  color: black;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+.admin_link:hover, .admin_link:active {
+  background-color: var(--alternative-purple-color); 
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
 
 @media only screen and (max-width: 925px) {
   .board_catalog {

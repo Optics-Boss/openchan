@@ -8,10 +8,7 @@ class SessionsController < ApplicationController
 
     if !!@user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to(root_path)
-
-      puts @user
-      puts "if"
+      redirect_to(admin_path)
     else
       message = "Something went wrong with your username and password"
       redirect_to login_path, notice: message
@@ -20,6 +17,12 @@ class SessionsController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+  end
+
+  def destroy
+    reset_session
+    message = "You have succesfully logged out"
+    redirect_to login_path, notice: message
   end
 
   private

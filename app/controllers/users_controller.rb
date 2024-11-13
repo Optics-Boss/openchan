@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
+  include UsersHelper
+  before_action :require_login
+
   def new
-    @users = User.all()
     @user = User.new
   end
 
@@ -17,5 +19,10 @@ class UsersController < ApplicationController
   private
     def user_params
       params.require(:user).permit(:username, :password)
+    end
+    def require_login
+      unless current_user
+        redirect_to login_url
+      end
     end
 end

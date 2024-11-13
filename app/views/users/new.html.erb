@@ -1,7 +1,6 @@
+<%= render "shared/adminmenu" %>
+
 <h1>New Users Page</h1>
-
-<%= @users.inspect %>
-
 <%= form_with model: @user do |form| %>
   <%= form.label :username %>
   <%= form.text_field :username %>
