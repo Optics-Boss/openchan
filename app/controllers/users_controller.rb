@@ -1,6 +1,15 @@
 class UsersController < ApplicationController
   include UsersHelper
   before_action :require_login
+  invisible_captcha only: [ :create, :update ], honeypot: :subtitle
+  rate_limit to: 1, within: 3.minutes,
+    by: -> { request.domain },
+    with: -> { redirect_to busy_controller_url,
+    alert: "Too many signups on domain!" }, only: [ :create, :update ]
+
+  def index
+    @users = User.all
+  end
 
   def new
     @user = User.new
@@ -8,6 +17,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    puts @user
 
     if @user.save
       redirect_to @user
@@ -16,9 +26,30 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+
+    if @user.update(user_params)
+      redirect_to @user
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy!
+
+    redirect_back fallback_location: root_path, status: :see_other
+  end
+
   private
     def user_params
-      params.require(:user).permit(:username, :password, :password_confirmation)
+      params.require(:user).permit(:username, :password, :password_confirmation, :role)
     end
     def require_login
       unless current_user

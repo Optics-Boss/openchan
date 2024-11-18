@@ -1,0 +1,19 @@
+<%= render "shared/adminmenu" %>
+
+<div class="boards_container">
+  <h2 class="boards_title">Users</h2>
+  <div class="boards_list">
+    <% @users.each do |user| %>
+      <p><%= user.username %> - <%= user.role %>
+          <%= link_to "User", edit_user_path(user) %>
+          -
+         <%= 
+           button_to "Delete", 
+           {:controller => :users, :action => 'destroy', :id => user.id },
+           :method => :delete, 
+           data: { turbo_confirm: "Are you sure?" }
+         %>
+      </p>
+    <% end %>
+  </div>
+</div>

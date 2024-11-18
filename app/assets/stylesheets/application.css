@@ -40,7 +40,6 @@ h3 {
 }
 
 .boards_container {
-  padding: 25px;
   background-color: var(--main-purple-color);
   border: 1px black solid;
   border-radius: 5px;
@@ -163,7 +162,7 @@ h3 {
 .form_textfield {
   width: 100%;
   padding: 12px 20px;
-  margin: 8px 0;
+  margin: 12px 0 18px 0;
   border: 1px solid black;
   border-radius: 3px;
   box-sizing: border-box;

@@ -62,3 +62,4 @@ end
 
 # custom
 gem "whenever"
+gem "invisible_captcha"
