@@ -2,10 +2,6 @@ class UsersController < ApplicationController
   include UsersHelper
   before_action :require_login
   invisible_captcha only: [ :create, :update ], honeypot: :subtitle
-  rate_limit to: 1, within: 3.minutes,
-    by: -> { request.domain },
-    with: -> { redirect_to busy_controller_url,
-    alert: "Too many signups on domain!" }, only: [ :create, :update ]
 
   def index
     @users = User.all
