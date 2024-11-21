@@ -1,7 +1,9 @@
 <%= render "shared/adminmenu" %>
 
 <h1 class="title">Edit Users Page</h1>
-
+<div class="users_menu">
+  <%= link_to "User overview", "/users", :class => "admin_button" %>
+</div>
 <div class="container">
   <%= render "form", user: @user %>
 </div>

@@ -1,18 +1,35 @@
 <%= render "shared/adminmenu" %>
 
-<div class="boards_container">
-  <h2 class="boards_title">Users</h2>
-  <div class="boards_list">
+<div class="users_menu">
+  <%= link_to "Create moderator", "/users/new", class: "admin_link" %>
+</div>
+
+<div class="users_container">
+  <h2 class="users_title">Users</h2>
+  <div class="users_list">
     <% @users.each do |user| %>
-      <p><%= user.username %> - <%= user.role %>
-          <%= link_to "User", edit_user_path(user) %>
-          -
-         <%= 
-           button_to "Delete", 
-           {:controller => :users, :action => 'destroy', :id => user.id },
-           :method => :delete, 
-           data: { turbo_confirm: "Are you sure?" }
-         %>
+      <p>
+        <b>Username</b>: <%= user.username %> </br>
+        <b>Role</b>: <%= user.role %> </br>
+        <% if user.username != current_user.username %>
+          <%= 
+            button_to "Edit", 
+            edit_user_path(user),
+            :form_class => "admin_button_form",
+            :class => "users_button",
+            :method => :get 
+           %>
+          <%= 
+            button_to "Delete", 
+            {:controller => :users, :action => 'destroy', :id => user.id },
+            :method => :delete, 
+            :form_class => "admin_button_form",
+            :class => "users_button",
+            data: { turbo_confirm: "Are you sure?" }
+           %>
+         <% else %>
+           You can't delete yourself.
+         <% end %>
       </p>
     <% end %>
   </div>
