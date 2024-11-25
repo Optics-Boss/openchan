@@ -38,4 +38,5 @@ Rails.application.routes.draw do
 
   get "admin" => "admin#index"
   get "admin/reported" => "admin#showReported"
+  get "admin/boards" => "boards#adminIndex"
 end

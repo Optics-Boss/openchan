@@ -1,0 +1,32 @@
+<%= render "shared/adminmenu" %>
+
+<div class="users_menu">
+  <%= link_to "Create board", "/boards/new", class: "admin_link" %>
+</div>
+
+<div class="users_container">
+  <h2 class="users_title">Boards</h2>
+  <div class="users_list">
+    <% @boards.each do |board| %>
+      <p>
+        <b>Name</b>: <%= board.name %> </br>
+        <b>Shortname</b>: <%= board.short_name %> </br>
+          <%= 
+            button_to "Edit", 
+            edit_board_path(board),
+            :form_class => "admin_button_form",
+            :class => "users_button",
+            :method => :get 
+           %>
+          <%= 
+            button_to "Delete", 
+            {:controller => :boards, :action => 'destroy', :id => board.id },
+            :method => :delete, 
+            :form_class => "admin_button_form",
+            :class => "users_button",
+            data: { turbo_confirm: "Are you sure?" }
+           %>
+      </p>
+    <% end %>
+  </div>
+</div>

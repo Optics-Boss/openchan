@@ -1,0 +1,23 @@
+<%= form_with model: board do |form| %>
+  <%= form.label :name %>
+  <%= 
+      form.text_field :name,
+      class: "form_textfield"
+  %>
+  <% if defined? board.errors %>
+    <% board.errors.full_messages_for(:name).each do |message| %>
+      <div class="form_error"><%= message %></div>
+    <% end %>
+  <% end %>
+  <%= form.label :short_name %>
+  <%= 
+    form.text_field :short_name, 
+    class: "form_textfield"
+  %>
+  <% if defined? board.errors %>
+    <% board.errors.full_messages_for(:short_name).each do |message| %>
+      <div class="form_error"><%= message %></div>
+    <% end %>
+  <% end %>
+  <%= form.submit "Create Board", class: "form_button"%>
+<% end %>
