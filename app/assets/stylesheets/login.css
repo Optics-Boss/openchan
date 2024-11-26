@@ -1,0 +1,25 @@
+.login_title {
+  margin-top: 0;
+  padding: 5px 15px;
+  border-bottom: 1px solid black;
+  background-color: var(--tertairy-purple-color);
+}
+
+.login_container {
+  background-color: var(--main-purple-color);
+  width: 50%;
+  border: 1px black solid;
+  border-radius: 5px;
+  margin: 0;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+}
+
+.login_content {
+  padding: 0 15px 15px 15px;
+}
+
+.login_error {
+  color: red;
+}

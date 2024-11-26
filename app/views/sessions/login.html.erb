@@ -1,9 +1,21 @@
-<div>
-  <h2>Log in</h2>
-  <%= notice %>
-  <%= form_tag '/login' do %>
-  Username: <%= text_field_tag :username %><br>
-  Password: <%= password_field_tag :password %><br>
-  <%= submit_tag "Log In" %>
-  <% end %>
+<div class="login_container">
+  <h2 class="login_title">Log in</h2>
+  <div class="login_content">
+    <p class="login_error"><%= notice %></p>
+    <%= form_tag '/login' do %>
+      Username:
+      <%= 
+        text_field_tag :username,
+        "",
+        class: "form_textfield"
+      %><br>
+      Password:
+      <%= 
+        password_field_tag :password,
+        "",
+        class: "form_textfield"
+      %><br>
+    <%= submit_tag "Log In", class: "form_button" %>
+    <% end %>
+  </div>
 </div>

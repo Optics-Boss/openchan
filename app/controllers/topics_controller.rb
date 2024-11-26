@@ -40,6 +40,6 @@ class TopicsController < ApplicationController
 
   private
     def topic_params
-      params.require(:topic).permit(:name, :subject, :comment)
+      params.require(:topic).permit(:name, :subject, :comment).merge(pin: :false)
     end
 end

@@ -1,6 +1,4 @@
 class BoardsController < ApplicationController
-  # invisible_captcha only: [ :create, :update ], honeypot: :subtitle
-
   def index
     @boards = Board.all
   end
