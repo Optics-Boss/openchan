@@ -10,7 +10,7 @@ class TopicsController < ApplicationController
     @topic.assign_attributes(topic_params)
 
     if @topic.persisted?
-      redirect_to board_path(@board)
+      redirect_to board_path(@board.short_name)
     else
       render "boards/show", status: :unprocessable_entity, locals: {
         boards: @boards,

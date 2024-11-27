@@ -1,7 +1,7 @@
 <div class="list_of_boards">
   [
     <% boards.each do |board| %>
-      <a href="/boards/<%= board.id %>">
+      <a href="/boards/<%= board.short_name %>">
         <%= board.short_name %> 
       </a>
       <% if board != boards.last %>

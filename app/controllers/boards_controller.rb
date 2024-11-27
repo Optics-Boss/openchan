@@ -22,11 +22,9 @@ class BoardsController < ApplicationController
   end
 
   def show
-    puts params
     short_name = params.extract_value(:id)
-    # @board = Board.find_by_short_name(short_name)
+    @board = Board.find_by_short_name(short_name)
     @boards = Board.all
-    @board = Board.find(params[:id])
 
     @sort = params[:sort] ? params[:sort] : "created_at"
 

@@ -4,7 +4,7 @@
   <h2 class="boards_title">Boards</h2>
   <div class="boards_list">
     <% @boards.each do |board| %>
-      <a href="/boards/<%= board.id %>">
+      <a href="/boards/<%= board.short_name %>">
         <p><%= board.name %></p>
       </a>
     <% end %>
