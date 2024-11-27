@@ -2,6 +2,7 @@
   <div class="topic_container">
     <h2 class="topic_title">Topic</h2>
     <%= form_with model: [ board, board.topics.build ] do |form| %>
+      <%= form.invisible_captcha :maintitle %>
       <p>
         <%= form.label :name %> <span class="form_required">*</span><br>
         <%= 

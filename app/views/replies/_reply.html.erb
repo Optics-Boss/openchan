@@ -7,16 +7,22 @@
         <p>
         <%= simple_format(reply.comment.gsub(/(>>(\d+))/, '<a href="#\2">\1</a>')) %>
         </p>
+        <% if !reply.reported %>
          <%= 
            button_to "Report", 
            {:controller => :replies, :action => 'report', :id => reply.id },
+           :form_class => "admin_button_form",
+           :class => "submenu_button",
            :method => :report
          %>
+       <% end %>
         <% if logged_in? %>
            <%= 
              button_to "Unreport", 
              {:controller => :replies, :action => 'unreport', :id => reply.id },
              :method => :unreport, 
+             :form_class => "admin_button_form",
+             :class => "submenu_button",
              data: { turbo_confirm: "Are you sure?" }
            %>
         <% end %>
@@ -25,6 +31,8 @@
              button_to "Delete", 
              {:controller => :replies, :action => 'destroy', :id => reply.id },
              :method => :delete, 
+             :form_class => "admin_button_form",
+             :class => "submenu_button",
              data: { turbo_confirm: "Are you sure?" }
            %>
       <% end %>

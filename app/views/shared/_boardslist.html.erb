@@ -10,4 +10,17 @@
     <% end %>
     ]
     [<a href="/">Home</a>]
+    <% if defined? current_user.username %>
+      <span class="admin_menu_right">
+        <span>Currently logged in as: <%= current_user.username %></span>
+        <%= 
+           button_to "Logout", 
+           {:controller => :sessions, :action => 'destroy' },
+           :form_class => "admin_button_form",
+           :class => "admin_button",
+           :method => :destroy 
+        %>
+      </span>
+    <% end %>
 </div>
+

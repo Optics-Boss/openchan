@@ -63,3 +63,4 @@ end
 # custom
 gem "whenever"
 gem "invisible_captcha"
+gem "rack-attack"

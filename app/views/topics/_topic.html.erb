@@ -15,12 +15,16 @@
            <%= 
              button_to "Pin", 
              {:controller => :topics, :action => 'pin', :id => topic.id },
+             :form_class => "admin_button_form",
+             :class => "submenu_button",
              :method => :pin 
            %>
            <%= 
              button_to "Delete", 
              {:controller => :topics, :action => 'destroy', :id => topic.id },
              :method => :delete, 
+             :form_class => "admin_button_form",
+             :class => "submenu_button",
              data: { turbo_confirm: "Are you sure?" }
            %>
         </div>

@@ -1,17 +1,19 @@
-<div class="admin_menu">
-  <span class="admin_menu_left">
-    <% if !current_page?(:controller => 'admin', :action => 'index')%>
-      <%= link_to "Admin overview", "/admin", :class => "admin_button" %>
-    <% end %>
-  </span>
-  <span class="admin_menu_right">
-    <span>Currently logged in as: <%= current_user.username %></span>
-    <%= 
-       button_to "Logout", 
-       {:controller => :sessions, :action => 'destroy' },
-       :form_class => "admin_button_form",
-       :class => "admin_button",
-       :method => :destroy 
-    %>
-  </span>
-</div>
+<% if defined? current_user.username %>
+  <div class="admin_menu">
+      <span class="admin_menu_left">
+        <% if !current_page?(:controller => 'admin', :action => 'index')%>
+          <%= link_to "Admin overview", "/admin", :class => "admin_button" %>
+        <% end %>
+      </span>
+      <span class="admin_menu_right">
+        <span>Currently logged in as: <%= current_user.username %></span>
+        <%= 
+           button_to "Logout", 
+           {:controller => :sessions, :action => 'destroy' },
+           :form_class => "admin_button_form",
+           :class => "admin_button",
+           :method => :destroy 
+        %>
+      </span>
+  </div>
+<% end %>

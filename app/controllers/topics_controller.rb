@@ -1,4 +1,6 @@
 class TopicsController < ApplicationController
+  invisible_captcha only: [ :create ], honeypot: :maintitle
+
   def new
     @topic = Topic.new
   end
@@ -27,7 +29,7 @@ class TopicsController < ApplicationController
   end
 
   def pin
-    @topic = Topic.find(params[:id]).toggle!(:reported)
+    @topic = Topic.find(params[:id]).toggle!(:pin)
     redirect_back fallback_location: root_path, status: :see_other
   end
 
