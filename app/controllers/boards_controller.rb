@@ -1,4 +1,7 @@
 class BoardsController < ApplicationController
+  include UsersHelper
+  before_action :require_login, only: [:adminIndex, :new, :create, :edit, :update]
+
   def index
     @boards = Board.all
   end
@@ -15,7 +18,7 @@ class BoardsController < ApplicationController
     @board = Board.new(board_params)
 
     if @board.save
-        redirect_to boards_path
+        redirect_to({ action: "adminIndex" })
     else
       render :new, status: :unprocessable_entity
     end
@@ -37,6 +40,14 @@ class BoardsController < ApplicationController
     else
       @default = ""
     end
+
+    if params[:sort] == "name"
+      @topics = @board.topics.select { |e| e["pin"] == true } +
+        @board.topics.select { |e| e["pin"] == false }.sort_by { |e| e[@sort] || @default }
+    else
+      @topics = @board.topics.select { |e| e["pin"] == true } +
+        @board.topics.select { |e| e["pin"] == false}.sort_by { |e| e[@sort] || @default }.reverse
+    end
   end
 
   def edit
@@ -47,7 +58,7 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
 
     if @board.update(board_params)
-      redirect_to @board
+      redirect_to({ action: "adminIndex" })
     else
       render :edit, status: :unprocessable_entity
     end
@@ -63,5 +74,10 @@ class BoardsController < ApplicationController
   private
     def board_params
       params.require(:board).permit(:name, :short_name)
+    end
+    def require_login
+      unless current_user
+        redirect_to login_url
+      end
     end
 end

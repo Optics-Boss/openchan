@@ -14,4 +14,8 @@ class Rack::Attack
   throttle("topics", limit: 10, period: 1.minute) do |req|
     req.ip if req.path.include?("/topics") && req.post?
   end
+
+  throttle("login", limit: 10, period: 1.minute) do |req|
+    req.ip if req.path.include?("/login") && req.post?
+  end
 end
